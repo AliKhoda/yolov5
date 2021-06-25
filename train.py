@@ -94,7 +94,7 @@ def train(hyp,  # path/to/hyp.yaml or hyp dictionary
         if not evolve:
             prefix = colorstr('tensorboard: ')
             logger.info(f"{prefix}Start with 'tensorboard --logdir {opt.project}', view at http://localhost:6006/")
-            loggers['tb'] = SummaryWriter(str(save_dir))
+            loggers['tb'] = SummaryWriter(os.path.join(str(save_dir),'tensorboard'))
 
         # W&B
         opt.hyp = hyp  # add hyperparameters
