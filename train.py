@@ -67,6 +67,7 @@ def train(hyp,  # path/to/hyp.yaml or hyp dictionary
     last = wdir / 'last.pt'
     best = wdir / 'best.pt'
     save_dir = save_dir / 'info'
+    save_dir.mkdir(parents=True, exist_ok=True)  # make dir
     results_file = save_dir / 'results.txt'
 
     # Hyperparameters
