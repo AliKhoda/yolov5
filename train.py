@@ -66,6 +66,7 @@ def train(hyp,  # path/to/hyp.yaml or hyp dictionary
     wdir.mkdir(parents=True, exist_ok=True)  # make dir
     last = wdir / 'last.pt'
     best = wdir / 'best.pt'
+    save_dir = save_dir / 'info'
     results_file = save_dir / 'results.txt'
 
     # Hyperparameters
@@ -361,7 +362,7 @@ def train(hyp,  # path/to/hyp.yaml or hyp dictionary
                 pbar.set_description(s)
 
                 # Plot
-                if plots and ni < 3:
+                if plots and ni < 5:
                     f = save_dir / f'train_batch{ni}.jpg'  # filename
                     Thread(target=plot_images, args=(imgs, targets, paths, f), daemon=True).start()
                     if loggers['tb'] and ni == 0:  # TensorBoard
